@@ -21,14 +21,6 @@ public class User {
         ++ idCounter ;
     }
 
-    public void setNameSurname(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
-        balance = 0;
-        id = idCounter;
-        ++ idCounter ;
-    }
-
     public void setName(String name) {
         this.name = name;
     }

@@ -8,8 +8,18 @@ public class Main {
 
         User a = new User();
         a.createUser();
+        User b = new User();
+        b.createUser();
 
         System.out.println(a.getNameSurname());
+        System.out.println(a.getBalance());
+        System.out.println(a.getId());
+
+        System.out.println(b.getNameSurname());
+        System.out.println(b.getBalance());
+        System.out.println(b.getId());
+
+
     }
 }
 
