@@ -5,14 +5,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
         User a = new User();
-        User b = new User();
+        a.createUser();
 
-        a.setNameSurname("Mateusz","Gacek");
-        b.setNameSurname("Adam","Gacek");
-
+        System.out.println(a.getNameSurname());
     }
 }
 

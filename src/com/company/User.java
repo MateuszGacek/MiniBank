@@ -1,12 +1,25 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class User {
+
+    Scanner scanner = new Scanner(System.in);
 
     String name;
     String surname;
     private double balance;
     static int idCounter = 1;
     int id = 0;
+
+
+    public void createUser(){
+        this.name = scanner.nextLine();
+        this.surname = scanner.nextLine();
+        balance = 0;
+        id = idCounter;
+        ++ idCounter ;
+    }
 
     public void setNameSurname(String name, String surname) {
         this.name = name;
