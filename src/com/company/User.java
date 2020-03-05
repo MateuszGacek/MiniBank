@@ -6,7 +6,7 @@ public class User {
     String surname;
     static int idCounter = 1;
 
-    public void setNameSurname(String name, String surname, int idCounter) {
+    public void setNameSurname(String name, String surname) {
         this.name = name;
         this.surname = surname;
         this.idCounter = idCounter;
@@ -21,11 +21,9 @@ public class User {
         this.surname = surname;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getName() {
+    public String getNameSurname() {
+        System.out.println("Name: "+name);
+        System.out.println("Surname: "+surname);
         return name;
     }
 
