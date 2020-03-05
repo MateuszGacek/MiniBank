@@ -4,13 +4,16 @@ public class User {
 
     String name;
     String surname;
+    private double balance;
     static int idCounter = 1;
+    int id = 0;
 
     public void setNameSurname(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.idCounter = idCounter;
-        idCounter ++;
+        balance = 0;
+        id = idCounter;
+        ++ idCounter ;
     }
 
     public void setName(String name) {
@@ -22,10 +25,34 @@ public class User {
     }
 
     public String getNameSurname() {
-        System.out.println("Name: "+name);
-        System.out.println("Surname: "+surname);
-        return name;
+        return "Name: "+name+"\nSurname: "+surname;
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public double getBalance() {
+        return balance;
+    }
+
+    public void disburse (double balance) {
+        if (balance <0){
+            System.out.println("Invalid form, pay must be positive");
+        }
+        else if (balance > this.balance) {
+            System.out.println("Not enough funds in the account");
+        } else {
+            this.balance -= balance;
+        }
+    }
+
+    public void deposit (double balance) {
+        if ( balance < 0){
+            System.out.println("Payments can not be negative");
+        }
+        else {
+            this.balance += balance;
+        }
+    }
 }

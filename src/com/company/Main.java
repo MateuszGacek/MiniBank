@@ -8,9 +8,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         User a = new User();
-        a.setNameSurname("Mateusz", "Gacek");
+        User b = new User();
 
-        a.getNameSurname();
+        a.setNameSurname("Mateusz","Gacek");
+        b.setNameSurname("Adam","Gacek");
 
     }
 }
