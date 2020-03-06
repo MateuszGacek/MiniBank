@@ -18,14 +18,8 @@ public class Main {
         System.out.println(b.getNameSurname());
         System.out.println(b.getBalance());
         System.out.println(b.getId());
-
-
     }
 }
-
-
-
-
 
 
 //TODO User ( Name, Surname, account )
