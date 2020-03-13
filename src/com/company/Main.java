@@ -5,19 +5,29 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        User a = new User();
-        a.createUser();
-        User b = new User();
-        b.createUser();
 
-        System.out.println(a.getNameSurname());
-        System.out.println(a.getBalance());
-        System.out.println(a.getId());
 
-        System.out.println(b.getNameSurname());
-        System.out.println(b.getBalance());
-        System.out.println(b.getId());
+        byte action = Byte.parseByte(scanner.nextLine());
+
+        if (action == 1){
+            System.out.println("Create user");
+        }
+        else if (action ==2){
+            System.out.println("Account balance");
+        }
+        else if (action ==3){
+          System.out.println("Add money");
+        }
+        else if (action ==4){
+            System.out.println("Subtract money");
+
+        }
+        else if (action ==5){
+            System.out.println("");
+        }
+
     }
 }
 
