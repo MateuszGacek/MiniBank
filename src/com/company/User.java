@@ -1,23 +1,43 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class User {
     Scanner scanner = new Scanner(System.in);
+    ArrayList<User> users = new ArrayList<>();
+
 
     String name;
     String surname;
     private double balance;
-    static int idCounter = 1;
+    static int idCounter = 0;
     int id = 0;
 
+    public User(){
 
-    public void createUser(){
+    }
+    public User(String name, String surname, double balance){
+        this.name = name;
+        this.surname = surname;
+        this.balance = balance;
+
+    }
+
+    public void addUser(){
+        users.add(new User());
+        users.get(User.getIdCounter()).createUser();
+    }
+
+
+    public User createUser(){
         this.name = scanner.nextLine();
         this.surname = scanner.nextLine();
         balance = 0;
         id = idCounter;
         ++ idCounter ;
+        return new User(name,surname,balance);
+
     }
 
     public void setName(String name) {
@@ -58,5 +78,9 @@ public class User {
         else {
             this.balance += balance;
         }
+    }
+
+    public static int getIdCounter() {
+        return idCounter;
     }
 }

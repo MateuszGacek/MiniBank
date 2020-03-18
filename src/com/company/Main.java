@@ -1,40 +1,57 @@
 package com.company;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        User user = new User();
 
+        boolean exit = false;
 
+while (!exit){
+    while (!scanner.hasNextByte()) scanner.next();
+    byte action = scanner.nextByte();
+        switch (action) {
+            case 1: {
+                user.addUser();
+                System.out.println("Create user");
+                break;
 
-        byte action = Byte.parseByte(scanner.nextLine());
+            }
 
-        if (action == 1){
-            System.out.println("Create user");
-        }
-        else if (action ==2){
-            System.out.println("Account balance");
-        }
-        else if (action ==3){
-          System.out.println("Add money");
-        }
-        else if (action ==4){
-            System.out.println("Subtract money");
+            case 2: {
+                System.out.println(User.getIdCounter());
+                System.out.println("Account balance");
+                break;
 
+            }
+
+            case 3: {
+                System.out.println("Add money");
+                break;
+
+            }
+
+            case 4: {
+                System.out.println("Subtract money");
+                break;
+
+            }
+
+            case 5: {
+                System.out.println("Pour money");
+                break;
+
+            }
+            default:
+                exit = true;
         }
-        else if (action ==5){
-            System.out.println("");
         }
+System.out.println();
+System.out.println();
+System.out.println("You leave MiniBank");
 
     }
 }
-
-
-//TODO User ( Name, Surname, account )
-//    action
-//    deposit
-//    disburse
-//    account balance
-//
