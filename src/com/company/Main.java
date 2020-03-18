@@ -3,14 +3,19 @@ package com.company;
 import java.util.*;
 
 public class Main {
+    private static User user = new User();
+    private static Menu menu = new Menu();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        User user = new User();
 
+        int id;
         boolean exit = false;
 
 while (!exit){
+    menu.menu();
+
+
     while (!scanner.hasNextByte()) scanner.next();
     byte action = scanner.nextByte();
         switch (action) {
@@ -18,29 +23,30 @@ while (!exit){
                 user.addUser();
                 System.out.println("Create user");
                 break;
-
             }
-
-            case 2: {
-                System.out.println(User.getIdCounter());
-                System.out.println("Account balance");
+            case 2:{
+                user.getUsersList();
                 break;
-
             }
-
             case 3: {
-                System.out.println("Add money");
+                System.out.println(user.userBalance());
                 break;
 
             }
 
             case 4: {
-                System.out.println("Subtract money");
+                System.out.println("Add money");
                 break;
 
             }
 
             case 5: {
+                System.out.println("Subtract money");
+                break;
+
+            }
+
+            case 6: {
                 System.out.println("Pour money");
                 break;
 
@@ -49,9 +55,6 @@ while (!exit){
                 exit = true;
         }
         }
-System.out.println();
-System.out.println();
-System.out.println("You leave MiniBank");
-
+System.out.println("\nYou leave MiniBank\n");
     }
 }
