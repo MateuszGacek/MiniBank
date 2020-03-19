@@ -17,18 +17,12 @@ public class User {
     public User(){
     }
 
-    public User(String name, String surname, double balance){
-        this.name = name;
-        this.surname = surname;
-        this.balance = balance;
-    }
-
     public void addUser(){
         users.add(new User());
         users.get(User.getIdCounter()).createUser();
     }
 
-    public User createUser(){
+    public void createUser(){
         System.out.println("Proszę podać imię:");
         this.name = scanner.nextLine();
         System.out.println("Proszę podać nazwisko:");
@@ -36,7 +30,6 @@ public class User {
         balance = 0;
         id = idCounter;
         ++ idCounter ;
-        return new User(name,surname,balance);
     }
 
     public void setName(String name) {
@@ -89,6 +82,19 @@ public class User {
 
     }
 
+    public int selectUser(){
+        while (!scanner.hasNextInt()) scanner.next();
+        idUsers = scanner.nextInt();
+        while (idUsers>=idCounter != idUsers<0) {
+            System.out.println("Nie ma takiego użytkownika,"+
+                    "\nPodaj poprawne id: ");
+            while (!scanner.hasNextInt()) scanner.next();
+            idUsers = scanner.nextInt();
+        }
+
+        return idUsers;
+    }
+
     public void disburse (double balance) {
         if (balance <0){
             System.out.println("Invalid form, pay must be positive");
@@ -100,12 +106,33 @@ public class User {
         }
     }
 
-    public void deposit (double balance) {
-        if ( balance < 0){
-            System.out.println("Payments can not be negative");
+    public void deposit () {
+        double deposit;
+
+        System.out.println("Proszę podać kwotę wpłaty: ");
+
+        while (!scanner.hasNextInt()) scanner.next();
+        deposit = scanner.nextInt();
+
+        if ( deposit < 0){
+            System.out.println("Wpłata nie może być ujemna");
         }
         else {
-            this.balance += balance;
+            this.balance += deposit;
+            System.out.println("Wpłacono: "+deposit+
+                    "\nStan konta wynosi: "+getBalance());
+        }
+    }
+
+    public void subtract (){
+        System.out.println("Proszę podać kwotę wypłaty: ");
+        double subtract;
+        while (!scanner.hasNextInt()) scanner.next();
+        subtract = scanner.nextInt();
+        if (this.balance>=Math.abs(subtract)){
+            this.balance -= (Math.abs(subtract));
+        }else {
+            System.out.println("Niewystarczająca ilość środków na koncie");
         }
     }
 
